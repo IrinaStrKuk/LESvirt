@@ -1,0 +1,151 @@
+/* Основные стили */
+.root {
+    -fx-font-family: 'Arial';
+    -fx-base: #f0f0f0;
+    -fx-font-size: 12px;
+}
+
+.title {
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Компоненты */
+.component-pane {
+    -fx-background-color: linear-gradient(to bottom, #f8f8f8, #e8e8e8);
+    -fx-border-color: #aaa;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+.info-pane {
+    -fx-background-color: #f0f8ff;
+}
+
+.info-label {
+    -fx-text-fill: #333;
+    -fx-font-size: 11px;
+}
+
+/* Кнопки */
+.action-btn {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+}
+
+.action-btn:hover {
+    -fx-background-color: #45a049;
+}
+
+.power-on {
+    -fx-background-color: #ff4444;
+    -fx-text-fill: white;
+}
+
+.power-off {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #333;
+}
+
+
+/* Конденсаторы */
+.capacitor-btn {
+    -fx-shape: "M 0 5 L 10 5 L 15 0 L 20 5 L 30 5 L 30 15 L 20 15 L 15 20 L 10 15 L 0 15 Z";
+    -fx-background-color: #eef;
+    -fx-border-color: #aaf;
+    -fx-border-width: 1;
+    -fx-min-width: 35;
+    -fx-min-height: 20;
+}
+
+.capacitor-btn:selected {
+    -fx-effect: dropshadow(gaussian, #55f, 5, 0.5, 0, 0);
+    -fx-background-color: #ccf;
+}
+
+/* Резисторы */
+.resistor-btn {
+    -fx-shape: "M 0 10 L 30 10";
+    -fx-background-color: #fee;
+    -fx-stroke: #333;
+    -fx-stroke-width: 3;
+    -fx-min-width: 35;
+    -fx-min-height: 20;
+}
+
+.resistor-btn:selected {
+    -fx-effect: dropshadow(gaussian, #f55, 5, 0.5, 0, 0);
+    -fx-background-color: #fcc;
+}
+
+/* Трансформатор */
+.transformer-visual {
+    -fx-background-color: #f0f0ff;
+    -fx-border-color: #aaf;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+/* Лампы (кружки) */
+.lamp-circle {
+    -fx-fill: #ddd;
+    -fx-stroke: #999;
+    -fx-stroke-width: 1;
+    -fx-cursor: hand;
+}
+
+.lamp-circle:hover {
+    -fx-opacity: 0.9;
+}
+
+/* Состояния ламп */
+.lamp-on {
+    -fx-fill: yellow;
+    -fx-effect: dropshadow(gaussian, gold, 15, 0.5, 0, 0);
+}
+
+.lamp-off {
+    -fx-fill: #ddd;
+    -fx-effect: none;
+}
+/* Индикаторы напряжения */
+.dc-indicator {
+    -fx-arc-width: 5;
+    -fx-arc-height: 5;
+    -fx-fill: #ccc;
+    -fx-stroke: #999;
+    -fx-stroke-width: 1;
+}
+
+.dc-indicator-on {
+    -fx-fill: #0f0;
+    -fx-effect: dropshadow(gaussian, #0f0, 5, 0.5, 0, 0);
+}
+
+.dc-indicator-off {
+    -fx-fill: #ccc;
+    -fx-effect: none;
+}
+/* Add to styles.css */
+.voltmeter-on {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.voltmeter-off {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #333;
+}
+
+.voltmeter-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
