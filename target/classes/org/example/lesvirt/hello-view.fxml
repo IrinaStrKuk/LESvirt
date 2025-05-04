@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.Group?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.lesvirt.LabStandController"
+      stylesheets="@styles.css" spacing="10">
+  <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+  <!-- Title -->
+  <Label text="Виртуальный лабораторный стенд ЛЭС-5" styleClass="title"/>
+
+  <HBox spacing="10">
+    <!-- Left Column - Power Control and Transformer -->
+    <VBox spacing="10" style="-fx-padding: 5;">
+      <!-- Power Control -->
+      <TitledPane text="Управление питанием" collapsible="false" styleClass="component-pane">
+        <VBox spacing="5">
+          <!-- Main Switch -->
+          <Button fx:id="powerSwitch" text="ВЫКЛ" styleClass="action-btn power-off"/>
+
+          <!-- Voltage Slider -->
+          <Label text="Напряжение (В):"/>
+          <Slider fx:id="voltageSlider" min="0" max="220" value="220" showTickMarks="true" showTickLabels="true" majorTickUnit="50"/>
+          <Label fx:id="voltageValue" text="220.0 В" style="-fx-alignment: center-right;"/>
+
+          <!-- Frequency -->
+          <Label text="Частота тока:"/>
+          <Label fx:id="freqValue" text="50 Гц" style="-fx-alignment: center-right;"/>
+        </VBox>
+      </TitledPane>
+
+      <!-- Transformer -->
+      <TitledPane text="Трехфазный трансформатор" collapsible="false" styleClass="component-pane transformer-pane">
+        <VBox spacing="5">
+          <Group fx:id="transformerVisual" styleClass="transformer-visual">
+            <Circle layoutX="40" layoutY="20" radius="10" fill="#ccc" stroke="#333" fx:id="phase1Visual"/>
+            <Circle layoutX="20" layoutY="40" radius="10" fill="#ccc" stroke="#333" fx:id="phase2Visual"/>
+            <Circle layoutX="60" layoutY="40" radius="10" fill="#ccc" stroke="#333" fx:id="phase3Visual"/>
+            <Line startX="30" startY="30" endX="70" endY="70" stroke="#333" strokeWidth="2"/>
+          </Group>
+
+          <!-- Phases -->
+          <CheckBox fx:id="phase1" text="Фаза 1" selected="true"/>
+          <CheckBox fx:id="phase2" text="Фаза 2" selected="true"/>
+          <CheckBox fx:id="phase3" text="Фаза 3" selected="true"/>
+
+          <!-- Transformer Parameters -->
+          <Label text="Выходное напряжение:"/>
+          <Label fx:id="transVoltage" text="20.0 В" style="-fx-alignment: center-right;"/>
+
+          <Label text="Мощность:"/>
+          <Label fx:id="transPower" text="120 Вт" style="-fx-alignment: center-right;"/>
+        </VBox>
+      </TitledPane>
+    </VBox>
+
+    <!-- Center Column - Lamp Banks, Capacitors, Resistors -->
+    <VBox spacing="10" style="-fx-padding: 5;" HBox.hgrow="ALWAYS">
+      <!-- Lamp Banks -->
+      <!-- Lamp Banks -->
+      <TitledPane text="Ламповые реостаты (3 группы по 5 ламп)" collapsible="false" styleClass="component-pane" VBox.vgrow="ALWAYS">
+        <HBox spacing="5">
+          <!-- Group 1 -->
+          <VBox spacing="5" styleClass="component-pane">
+            <Label text="Группа 1" style="-fx-alignment: center;"/>
+            <HBox spacing="5" alignment="CENTER">
+              <Circle fx:id="lamp1_1" radius="15" strokeWidth="1"/>
+              <Circle fx:id="lamp1_2" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp1_3" radius="15" strokeWidth="1"/>
+              <Circle fx:id="lamp1_4" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp1_5" radius="15" strokeWidth="1"/>
+            </HBox>
+          </VBox>
+
+          <!-- Group 2 -->
+          <VBox spacing="5" styleClass="component-pane">
+            <Label text="Группа 2" style="-fx-alignment: center;"/>
+            <HBox spacing="5" alignment="CENTER">
+              <Circle fx:id="lamp2_1" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp2_2" radius="15" strokeWidth="1"/>
+              <Circle fx:id="lamp2_3" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp2_4" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp2_5" radius="15"  strokeWidth="1"/>
+            </HBox>
+          </VBox>
+
+          <!-- Group 3 -->
+          <VBox spacing="5" styleClass="component-pane">
+            <Label text="Группа 3" style="-fx-alignment: center;"/>
+            <HBox spacing="5" alignment="CENTER">
+              <Circle fx:id="lamp3_1" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp3_2" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp3_3" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp3_4" radius="15"  strokeWidth="1"/>
+              <Circle fx:id="lamp3_5" radius="15"  strokeWidth="1"/>
+            </HBox>
+          </VBox>
+        </HBox>
+      </TitledPane>
+
+      <!-- Capacitors -->
+      <TitledPane text="Блок конденсаторов (0.25-34.75 мкФ)" collapsible="false" styleClass="component-pane" VBox.vgrow="ALWAYS">
+        <VBox spacing="5">
+          <!-- Small Capacitors -->
+          <HBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="0.25 мкФ:"/>
+            <ToggleButton fx:id="cap1" text="C1" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap2" text="C2" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap3" text="C3" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap4" text="C4" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap5" text="C5" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap6" text="C6" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap7" text="C7" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap8" text="C8" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap9" text="C9" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap10" text="C10" styleClass="capacitor-btn"/>
+          </HBox>
+
+          <!-- Large Capacitors -->
+          <HBox spacing="5" alignment="CENTER">
+            <ToggleButton fx:id="cap11" text="C11 (10 мкФ)" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap12" text="C12 (20 мкФ)" styleClass="capacitor-btn"/>
+            <ToggleButton fx:id="cap13" text="C13 (30 мкФ)" styleClass="capacitor-btn"/>
+          </HBox>
+        </VBox>
+      </TitledPane>
+
+      <!-- Resistors -->
+      <TitledPane text="Блок резисторов (100-2000 Ом)" collapsible="false" styleClass="component-pane" VBox.vgrow="ALWAYS">
+        <GridPane hgap="5" vgap="5">
+          <ToggleButton fx:id="res1" text="R1 (100 Ω)" styleClass="resistor-btn" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+          <ToggleButton fx:id="res2" text="R2 (200 Ω)" styleClass="resistor-btn" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+          <ToggleButton fx:id="res3" text="R3 (300 Ω)" styleClass="resistor-btn" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+          <ToggleButton fx:id="res4" text="R4 (400 Ω)" styleClass="resistor-btn" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+          <ToggleButton fx:id="res5" text="R5 (500 Ω)" styleClass="resistor-btn" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+          <ToggleButton fx:id="res6" text="R6 (1000 Ω)" styleClass="resistor-btn" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+          <ToggleButton fx:id="res7" text="R7 (2000 Ω)" styleClass="resistor-btn" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        </GridPane>
+      </TitledPane>
+    </VBox>
+
+    <!-- Right Column - System Info -->
+    <VBox spacing="10" style="-fx-padding: 5;">
+      <!-- System Status -->
+      <TitledPane text="Показания и управление" collapsible="false" styleClass="component-pane info-pane">
+        <VBox spacing="5">
+          <!-- System Status -->
+          <TitledPane text="Статус системы" collapsible="false" styleClass="component-pane">
+            <VBox spacing="5">
+              <Label fx:id="statusLabel" wrapText="true" styleClass="info-label"/>
+            </VBox>
+          </TitledPane>
+
+          <!-- Overload Protection -->
+          <HBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Защита от перегрузки:" styleClass="info-label"/>
+            <CheckBox fx:id="protectionCheckbox" selected="true"/>
+          </HBox>
+
+          <!-- Circuit Parameters -->
+          <TitledPane text="Параметры цепи" collapsible="false" styleClass="component-pane">
+            <VBox spacing="2">
+              <Label fx:id="totalCap" text="Общая ёмкость: 0.00 мкФ" styleClass="info-label"/>
+              <Label fx:id="totalResistance" text="Общее сопротивление: ∞ Ω" styleClass="info-label"/>
+              <Label fx:id="powerFactor" text="Коэффициент мощности: 0.00" styleClass="info-label"/>
+            </VBox>
+          </TitledPane>
+
+          <!-- DC Voltages -->
+          <TitledPane text="Индикаторы" collapsible="false" styleClass="component-pane">
+            <VBox spacing="2">
+              <HBox spacing="5">
+                <Rectangle fx:id="dc15vIndicator" width="15" height="10" styleClass="dc-indicator dc-indicator-off"/>
+                <Label fx:id="dc15v" text="15В: 0.0 В" styleClass="info-label"/>
+              </HBox>
+              <HBox spacing="5">
+                <Rectangle fx:id="dc10vIndicator" width="15" height="10" styleClass="dc-indicator dc-indicator-off"/>
+                <Label fx:id="dc10v" text="10В: 0.0 В" styleClass="info-label"/>
+              </HBox>
+            </VBox>
+          </TitledPane>
+          <!-- Voltmeter add -
+          <TitledPane text="Вольтметр" collapsible="false" styleClass="component-pane">
+            <VBox spacing="5">
+              <HBox spacing="5" alignment="CENTER_LEFT">
+                <ToggleButton fx:id="voltmeterButton" text="Подключить" styleClass="action-btn"/>
+              </HBox>
+              <HBox spacing="5" alignment="CENTER">
+                <Label text="Показание:" styleClass="info-label"/>
+                <Label fx:id="voltmeterValue" text="- В" styleClass="info-label" style="-fx-font-weight: bold;"/>
+              </HBox>
+            </VBox>
+          </TitledPane>
+          -->
+          <!-- Reset Button -->
+          <Button text="Сбросить все параметры" onAction="#handleReset" styleClass="action-btn"/>
+        </VBox>
+      </TitledPane>
+    </VBox>
+  </HBox>
+</VBox>

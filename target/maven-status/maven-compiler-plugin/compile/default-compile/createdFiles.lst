@@ -1,0 +1,8 @@
+org\example\lesvirt\PowerSupply.class
+org\example\lesvirt\LampBank.class
+org\example\lesvirt\Transformer3Phase.class
+module-info.class
+org\example\lesvirt\LabStandController.class
+org\example\lesvirt\Main.class
+org\example\lesvirt\ElectricalComponent.class
+org\example\lesvirt\LampTester.class
